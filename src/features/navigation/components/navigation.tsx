@@ -14,6 +14,7 @@ export type NavigationItem = {
 
 export const navigation: NavigationItem[] = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
+  { name: 'Customer Service', href: '/customerService', icon: UserCircleIcon },
   { 
     name: 'Management', 
     icon: CpuChipIcon,
@@ -23,5 +24,4 @@ export const navigation: NavigationItem[] = [
     ]
   },
   { name: 'Alerts', href: '/alerts', icon: ExclamationTriangleIcon },
-  { name: 'Customer Service', href: '/customerService', icon: UserCircleIcon },
 ];

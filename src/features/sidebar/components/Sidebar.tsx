@@ -7,14 +7,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { navigation } from '@/features/navigation/components/navigation'; 
 import { cn } from '@/lib/utils';
+import { UserMenu } from '@/features/userMenu/components/UserMenu';
 
 export function Sidebar({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
 
-  // Helper to render a single navigation item
   const renderNavItem = (item: any) => {
-    // Check if any child is active to keep the parent open
     const isCurrent = item.href ? pathname === item.href : false;
     const isChildCurrent = item.children?.some((child: any) => pathname === child.href);
 
@@ -34,7 +33,6 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
       );
     }
 
-    // Render Accordion for items with children
     return (
       <Disclosure as="div" key={item.name} defaultOpen={isChildCurrent}>
         {({ open }) => (
@@ -105,7 +103,7 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
               <DialogPanel className="relative mr-16 flex w-full max-w-xs flex-1">
                 <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4 ring-1 ring-white/10">
                   <div className="flex h-16 shrink-0 items-center">
-                    <img className="h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Kamstrup" />
+                    <img className="h-8 w-auto" src="/favicon144.png" alt="Kamstrup" />
                   </div>
                   <nav className="flex flex-1 flex-col">
                     <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -127,7 +125,7 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
         <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4">
           <div className="flex h-16 shrink-0 items-center">
-            <img className="h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Kamstrup" />
+            <img className="h-8 w-auto" src="/favicon144.png" alt="Kamstrup" />
           </div>
           <nav className="flex flex-1 flex-col">
             <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -158,7 +156,7 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
           {/* Top Header Content (Profile dropdown, etc.) goes here */}
           <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
              <div className="flex items-center gap-x-4 lg:gap-x-6 ml-auto">
-                 {/* Insert your UserMenu component from previous step here */}
+                <UserMenu />
              </div>
           </div>
         </div>
